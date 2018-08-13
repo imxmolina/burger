@@ -19,8 +19,8 @@ router.get("/", function (req, res) {
 
 router.post("/api/burgers", function (req, res) {
     console.log(req.body.name);
-    burger.create([req.body.name], function (res) {
-        res.json({id: res.insertId})
+    burger.create([req.body.name], function (result) {
+        res.json({id: result.insertId})
     });
 });
 
@@ -28,8 +28,8 @@ router.put("/api/burgers/:id", function (req, res) {
    
     burger.update(
         //EATEN TRUE HERE
-        req.params.id, function (req, res) {
-        if (res.changedRows == 0) {
+        req.params.id, function (results) {
+        if (results.changedRows == 0) {
             return res.status(404).end();
         } else {
            return res.status(200).end();

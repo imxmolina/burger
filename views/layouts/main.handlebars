@@ -9,12 +9,11 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
     {{!-- <link rel="stylesheet" href="assets/css/style.css"> --}}
-    <title>Burgers!</title>
+    <title>ORDER BURGERS!</title>
     <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 <div class="header">
 	<img src="/../../../public/images/burger.gif">
-    <h1 class="center">Order Up</h1>
 </div>
 <div class="container">
 
@@ -24,8 +23,7 @@
 </body>
 
 <script>
-    //on click event will get the unique id off of the data-id attribute and will send an ajax call to my PUT method in burger_controller.js. This will send MYsql an updated devoured state of true
-    $(".devour").on("click", function (event) {
+    $(".eaten").on("click", function (event) {
         console.log("eaten")
         var id = $(this).data("id");
         console.log(id);
@@ -38,12 +36,12 @@
             data: nowEaten
         }).then(
             function () {
-                console.log("changed devour to " + nowEaten);
+                console.log("changed eaten to " + nowEaten);
                 location.reload();
             }
         );
     });
-    //on click event to submit the form, this function grabs the burger name written in the input box, clears out the display, then triggers and ajax call to my post method in burger_controllers, which will insert a new burger into the burger table.
+//click adds burger in input to burger list
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
         var newBurger = {

@@ -5,11 +5,11 @@
 <ul>
     {{#each burger}}
     
-    {{#if this.devoured}}
+    {{#if this.eaten}}
        {{else}}
      <li>{{this.burger_name}}</li>
      
-     <button data-id ="{{this.id}}" data-eaten = "{{this.devoured}}" class = "devour">Eat me!</button>
+     <button data-id ="{{this.id}}" data-eaten = "{{this.eaten}}" class = "eaten">Eat me!</button>
      {{/if}}
      {{/each}}
 </ul>
